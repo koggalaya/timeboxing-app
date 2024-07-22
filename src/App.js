@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import TimeboxingLayout from './components/TimeboxingLayout';
+import Timebox from './components/Timebox';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TimeboxingLayout>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <Timebox title="Work" duration={1} />
+        <Timebox title="Break" duration={1} />
+        <Timebox title="Walk" duration={1} />
+      </div>
+    </TimeboxingLayout>
   );
 }
 
