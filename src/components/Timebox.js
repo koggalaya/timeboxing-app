@@ -6,6 +6,7 @@ const Timebox = ({ title, duration }) => {
   const intervalRef = useRef(null);
   const audioRef = useRef(null);
 
+
   useEffect(() => {
     // Initialize the audio element once
     audioRef.current = new Audio('/src/assets/alarm.mp3');
@@ -65,6 +66,10 @@ const Timebox = ({ title, duration }) => {
         <button onClick={pause} className="bg-transparent hover:bg-yellow-500 text-yellow-400 font-semibold hover:text-white py-2 px-4 border border-blue-400 hover:border-transparent rounded">Pause</button>
         <button onClick={reset} className="bg-transparent hover:bg-red-500 text-red-400 font-semibold hover:text-white py-2 px-4 border border-blue-400 hover:border-transparent rounded">Reset</button>
       </div>
+      <div className="mt-2">
+        {isRunning ? <span className="text-green-400">Timer is running...</span> : <span className="text-yellow-400">Timer is paused</span>}
+      </div>
+    
     </div>
   );
 };
