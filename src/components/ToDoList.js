@@ -1,22 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { db } from "../firebase";
-import { collection, addDoc, onSnapshot, updateDoc, deleteDoc, doc } from "firebase/firestore";
+import { db, auth } from "../firebase";
+import { collection, addDoc, onSnapshot, updateDoc, deleteDoc, doc, query, where } from "firebase/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
 import '../index.css';
 
 function ToDoList() {
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
+  const [user] = useAuthState(auth);
 
   useEffect(() => {
-    const unsub = onSnapshot(collection(db, "todos"), (snapshot) => {
-      const todoData = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-      setTodos(todoData);
-    });
-    return () => unsub();
-  }, []);
+    if (user) {
+      const q = query(collection(db, "todos"), where("userId", "==", user.uid));
+      const unsub = onSnapshot(q, (snapshot) => {
+        const todoData = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setTodos(todoData);
+      });
+      return () => unsub();
+    }
+  }, [user]);
 
   const addTodo = async (e) => {
     e.preventDefault();
@@ -24,7 +29,8 @@ function ToDoList() {
       await addDoc(collection(db, "todos"), {
         task: todo,
         completed: false,
-        important: false
+        important: false,
+        userId: user.uid // Associate task with the user's ID
       });
       setTodo("");
     }
@@ -49,12 +55,9 @@ function ToDoList() {
   };
 
   return (
-    <div className="flex flex-col  items-center p-4 bg-transparent min-h-screen">
+    <div className="flex flex-col items-center p-4 bg-transparent min-h-screen">
       <h1 className="text-4xl font-bold mb-8">Task List</h1>
-      
-      
-      
-      <div className="w-full max-w-md p-4 bg-grey-800 bg-opacity-20 shadow-lg rounded-lg  mb-8">
+      <div className="w-full max-w-md p-4 bg-gray-800 bg-opacity-20 shadow-lg rounded-lg mb-8">
         <form onSubmit={addTodo} className="flex mb-4">
           <input
             type="text"
@@ -65,7 +68,6 @@ function ToDoList() {
           />
           <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded-r-md">Add</button>
         </form>
-        
         <h2 className="text-xl font-semibold mb-4 text-orange-900">Important Tasks</h2>
         <ul>
           {todos.filter(todo => todo.important).map((todo) => (
@@ -87,7 +89,6 @@ function ToDoList() {
             </li>
           ))}
         </ul>
-        
         <h2 className="text-xl font-semibold mt-6 mb-4 text-orange-900">Overall Tasks</h2>
         <ul>
           {todos.map((todo) => (
@@ -109,7 +110,6 @@ function ToDoList() {
             </li>
           ))}
         </ul>
-        
         <div className="mt-6">
           <h2 className="text-xl font-semibold text-green-700">Task Completion Efficiency: {calculateEfficiency().toFixed(2)}%</h2>
         </div>
