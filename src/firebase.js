@@ -4,13 +4,13 @@ import { getFirestore } from 'firebase/firestore';
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCVcge4km-Dvh16J3BJHv3grhO1fhJN1lU",
-    authDomain: "timeboxing-app-9b1a5.firebaseapp.com",
-    projectId: "timeboxing-app-9b1a5",
-    storageBucket: "timeboxing-app-9b1a5.appspot.com",
-    messagingSenderId: "909931599046",
-    appId: "1:909931599046:web:1a4dba49e4a8df642373c7",
-    measurementId: "G-M52GBFYRVB"
+  apiKey: "AIzaSyCI9yU0bFd9AZlh2ZQ1t7dDLdPP7eDe7Wo",
+  authDomain: "timebox-776f7.firebaseapp.com",
+  projectId: "timebox-776f7",
+  storageBucket: "timebox-776f7.appspot.com",
+  messagingSenderId: "971430710287",
+  appId: "1:971430710287:web:6b55c9e960e303a345277a",
+  measurementId: "G-3SSW2C1Y3G"
   };
 
   const app = initializeApp(firebaseConfig);
@@ -19,4 +19,4 @@ const provider = new GoogleAuthProvider();
 const db = getFirestore(app);
 const analytics = getAnalytics(app);
 
-export { auth, provider, db,analytics };
+export { auth, provider, db ,analytics };

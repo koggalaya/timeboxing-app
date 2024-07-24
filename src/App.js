@@ -20,30 +20,31 @@ const App = () => {
   };
 
   return (
-<div className="p-4">
-      {user ? (
-        <>
-          <button onClick={handleSignOut} className="bg-red-500 text-white p-2 rounded">Sign Out</button>
-         < TimeboxingLayout>
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Timebox title="Work" duration={1} />
-        <Timebox title="Break" duration={1} />
-        <Timebox title="Walk" duration={1} />
+    <TimeboxingLayout>
+      <div className="p-4">
+        {user ? (
+          <>
+            <button onClick={handleSignOut} className="absolute top-0 right-0 mt-4 mr-4 bg-red-500 text-white p-2 rounded ">Sign Out</button>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <Timebox title="Work" duration={50} />
+              <Timebox title="Break" duration={5} />
+              <Timebox title="Walk" duration={5} />
+            </div>
+            <ToDoList user={user} />
+          </>
+        ) : (
+          <Login setUser={setUser} />
+        )}
       </div>
-      <ToDoList user={user} />
-         </TimeboxingLayout>
-        </>
-      ) : (
-        <Login setUser={setUser} />
-      )}
-    </div>
+    </TimeboxingLayout>
+  );
+}  
 
     
       
       
 
 
-  );
-}
+
 
 export default App;
