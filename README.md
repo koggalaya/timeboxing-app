@@ -1,3 +1,19 @@
+Time Box App
+Description
+The Time Box app is designed to improve work efficiency and health for work-from-home employees, entrepreneurs, freelancers, and students. By encouraging regular breaks and physical activity, this app aims to enhance productivity and reduce health issues associated with prolonged sitting and screen time.
+
+Features:
+Work and Rest Cycles: The app implements a structured schedule of 50 minutes of focused work, followed by a 5-minute rest and a 5-minute compulsory walk. This cycle helps maintain high work ethic and efficiency while preventing back pain and vision problems.
+
+Time Boxing: Organize your tasks with a dedicated to-do list. The app allows you to prioritize tasks into 'Important Tasks' and 'Overall Tasks,' helping you focus on what matters most.
+
+User-Specific To-Dos: Each user can log in using their Google account, ensuring that only they can access and manage their personal to-dos.
+
+With the Time Box app, you can achieve better work habits and a healthier lifestyle, making your work sessions more productive and balanced.
+
+
+App is now live :- (https://timebox-776f7.web.app/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
