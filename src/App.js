@@ -25,7 +25,7 @@ const App = () => {
       <div className="p-4">
         {user ? (
           <>
-            <button onClick={handleSignOut} className="absolute top-0 right-0 mt-4 mr-4 bg-red-500 text-white p-2 rounded">Sign Out</button>
+            <button onClick={handleSignOut} className="absolute top-0 right-0 mt-4 mr-4  bg-gradient-to-r from-red-400 to-red-800 text-white p-2 rounded font-semibold">Sign Out</button>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
               <div>
                 <Timebox 

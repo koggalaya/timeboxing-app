@@ -66,9 +66,9 @@ function ToDoList() {
             placeholder="Enter todo..."
             className="flex-1 px-2 py-2 bg-gray-700 border rounded-l-md focus:outline-none"
           />
-          <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded-r-md ">Add</button>
+          <button type="submit" className="px-4 py-2 bg-gradient-to-r from-red-600 to-blue-800 text-white font-semibold rounded-r-md ">Add</button>
         </form>
-        <h2 className="text-xl font-semibold mb-4 text-orange-900">Important Tasks</h2>
+        <h2 className="text-xl font-semibold mb-4 text-center text-green-500">Important Tasks</h2>
         <ul>
           {todos.filter(todo => todo.important).map((todo) => (
             <li key={todo.id} className="flex items-center mb-2">
@@ -89,7 +89,7 @@ function ToDoList() {
             </li>
           ))}
         </ul>
-        <h2 className="text-xl font-semibold mt-6 mb-4 text-orange-900">Overall Tasks</h2>
+        <h2 className="text-xl font-semibold mt-6 mb-4 text-center text-white">Overall Tasks</h2>
         <ul>
           {todos.map((todo) => (
             <li key={todo.id} className="flex items-center mb-2">
@@ -111,7 +111,7 @@ function ToDoList() {
           ))}
         </ul>
         <div className="mt-6">
-          <h2 className="text-xl font-semibold text-green-700">Task Completion Efficiency: {calculateEfficiency().toFixed(2)}%</h2>
+          <h2 className="text-xl font-semibold text-gray-400">Task Completion Efficiency: {calculateEfficiency().toFixed(2)}%</h2>
         </div>
       </div>
     </div>

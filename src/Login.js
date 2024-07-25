@@ -1,6 +1,7 @@
 import React from 'react';
 import { auth, provider } from './firebase';
 import { signInWithPopup } from 'firebase/auth';
+import heroImage from '../src/assets/Take.png'; 
 
 const Login = ({ setUser }) => {
   const signInWithGoogle = () => {
@@ -14,20 +15,24 @@ const Login = ({ setUser }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500">
-    <div className="bg-gray-800 p-8 rounded-lg shadow-lg text-center">
-      <h1 className="text-3xl font-bold text-white mb-6">Welcome to timeboxing</h1>
-      <p className="text-gray-400 mb-4">Sign in to continue</p>
-      <button
-        onClick={signInWithGoogle}
-        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition duration-300"
-      >
-        Sign in with Google
-      </button>
+    <div className="min-h-screen flex items-center justify-center bg-transparent">
+      <div className="flex flex-row items-center justify-center max-w-4xl mx-auto">
+        <div className="hidden md:block">
+          <img src={heroImage} alt="Hero" className="h-full object-cover" />
+        </div>
+        <div className="text-center text-white p-8">
+          <h1 className="text-3xl font-bold mb-6">Are you ready to play with time and win your day?</h1>
+          <p className="mb-4">Start your journey in one click</p>
+          <button
+            onClick={signInWithGoogle}
+            className="g-white text-blue-500 font-semibold py-2 px-8 rounded-full transition duration-300 transform hover:scale-105 hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white"
+          >
+            SIGN UP
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
-);
+  );
 };
-
 
 export default Login;
