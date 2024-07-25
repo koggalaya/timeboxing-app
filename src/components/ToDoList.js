@@ -57,16 +57,16 @@ function ToDoList() {
   return (
     <div className="flex flex-col items-center p-4 bg-transparent min-h-screen">
       <h1 className="text-4xl font-bold mb-8">Task List</h1>
-      <div className="w-full max-w-md p-4 bg-gray-800 bg-opacity-20 shadow-lg rounded-lg mb-8">
+      <div className="w-full max-w-lg p-4 bg-gray-800 bg-opacity-20 shadow-lg rounded-lg mb-8">
         <form onSubmit={addTodo} className="flex mb-4">
           <input
             type="text"
             value={todo}
             onChange={(e) => setTodo(e.target.value)}
             placeholder="Enter todo..."
-            className="flex-1 px-3 py-2 bg-gray-700 border rounded-l-md focus:outline-none"
+            className="flex-1 px-2 py-2 bg-gray-700 border rounded-l-md focus:outline-none"
           />
-          <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded-r-md">Add</button>
+          <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded-r-md ">Add</button>
         </form>
         <h2 className="text-xl font-semibold mb-4 text-orange-900">Important Tasks</h2>
         <ul>
